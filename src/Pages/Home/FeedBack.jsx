@@ -2,7 +2,7 @@ import React from "react";
 
 const FeedBack = () => {
   return (
-    <div>
+    <div className="bg-gray-200 w-4/5 mx-auto p-4 mb-20 rounded-md">
       <h1 className="text-center text-4xl font-bold mt-16">
         Leaves your Feedback
       </h1>

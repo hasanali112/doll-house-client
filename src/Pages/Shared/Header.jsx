@@ -3,7 +3,7 @@ import logo from '../../assets/images/logo.png'
 import { NavLink , Link} from "react-router-dom";
 const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-600">
     <div className="navbar-start">
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,17 +20,17 @@ const Header = () => {
       </div>
       <div className="flex lg:ml-6">
         <img src={logo} alt="" className="w-12"/>
-      <Link className="btn btn-ghost normal-case text-2xl font-bold">Doll House</Link>
+      <Link className="btn btn-ghost normal-case text-2xl font-bold text-white">Doll House</Link>
       </div>
       
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
        <NavLink to='/'>
-          <li><a>Home</a></li>
+          <li><a className="text-white">Home</a></li>
         </NavLink> 
       <NavLink to='/blog'>
-            <li><a>Blog</a></li>
+            <li><a className="text-white">Blog</a></li>
         </NavLink>
       </ul>
     </div>

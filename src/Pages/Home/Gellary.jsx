@@ -1,5 +1,5 @@
 import React from "react";
-import Gellaryphoto1 from "../../assets/images/g1.jpg";
+
 
 const Gellary = () => {
   return (

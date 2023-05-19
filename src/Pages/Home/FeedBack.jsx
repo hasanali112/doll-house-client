@@ -106,7 +106,7 @@ const FeedBack = () => {
               />
             </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Submit</button>
+          <input className="btn btn-primary" type="submit" value="Submit" />
           </div>
         </div>
       </form>

@@ -17,7 +17,8 @@ const Banner = () => {
             <p className="mb-5 text-base fond-semibold">
             Find huge collection of  Doll Online at lowest prices in  on Doll House. Check out wide range of our collection.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-secondary mr-4">Explore now</button>
+            <button className="btn btn-outline btn-ghost">Learn more</button>
           </div>
         </div>
       </div>

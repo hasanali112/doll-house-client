@@ -1,28 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 
 
 const Login = () => {
- 
+  const [error, setError] =useState('');
   const {UserSignIn} = useContext(AuthContext)
+  const navigate = useNavigate ()
+  const location =useLocation();
+  const from = location.state?.from?.pathname || "/";
  
   
   const handleSignIn = event =>{
     event.preventDefault();
+    setError('')
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value
     console.log(email, password)
     UserSignIn(email, password)
     .then(result =>{
+      setError('')
       const signInUser = result.user;
       console.log(signInUser)
       form.reset();
+      navigate(from, { replace: true })
     })
     .catch(error=>{
       console.log(error)
+      setError(error.message)
     })
   }
 
@@ -36,6 +43,7 @@ const Login = () => {
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold text-center">SignIn now!</h1>
+            <h2 className="text-rose-700 font-bold text-2xl">{error}</h2>
           </div>
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
             <div className="card-body">

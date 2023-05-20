@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const SignUp = () => {
-
+  const [error, setError] = useState()
    const {createUser, updateSignUp} = useContext(AuthContext)
+   const navigate = useNavigate()
 
 
     const handleSignup = event =>{
         event.preventDefault();
+        setError('')
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
@@ -17,6 +19,7 @@ const SignUp = () => {
         console.log(name, email, password, photo)
         createUser(email, password)
         .then(result =>{
+          setError("")
           const createdUser = result.user;
           console.log(createdUser)
           updateSignUp(result.user, name, photo)
@@ -27,9 +30,11 @@ const SignUp = () => {
             console.log(error.message)
           })
           form.reset()
+          navigate('/login')
         })
         .catch(error=>{
           console.log(error)
+          setError(error.message)
         })
     }
 
@@ -41,6 +46,7 @@ const SignUp = () => {
       <h1 className="text-center text-4xl font-bold mt-16">
         Sing Up Here!
       </h1>
+      <h2 className="text-rose-700 font-bold text-2xl">{error}</h2>
       <form onSubmit={handleSignup}>
         <div className="card-body w-3/5 mx-auto">
          {/* row--------1 */} 

@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import logo from '../../assets/images/logo.png'
 import { NavLink , Link} from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 
 
 
 const Header = () => {
-
   const {user, userSignOut} = useContext(AuthContext)
   
   const handleSignOut = () =>{
@@ -27,7 +28,9 @@ const Header = () => {
       <li ><NavLink to='/mytoys'>My Toys</NavLink></li>
       <li ><NavLink to='/addtoy'>Add A Toys</NavLink></li>
       <div className="flex items-center">
-      {user && <h1 className="mr-2">{user.displayName}</h1>}
+      {user && <><a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
+           <img src={user.photoURL} alt="" className="rounded-full mr-2"/>
+         </a> <Tooltip id="my-tooltip" /></> }
       <button className="btn btn-secondary" onClick={handleSignOut}>Sign Out</button>
       </div>
     </>

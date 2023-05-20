@@ -20,7 +20,7 @@ import SignUp from "../Pages/SignUp";
             element: <Home></Home>
         },
         {
-          path:'/blog',
+          path:'/blogs',
           element:<Blog></Blog>
         },
         {

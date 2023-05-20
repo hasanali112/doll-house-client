@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+
 
 const Login = () => {
+ 
+  const {UserSignIn} = useContext(AuthContext)
+ 
+  
+  const handleSignIn = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value
+    console.log(email, password)
+    UserSignIn(email, password)
+    .then(result =>{
+      const signInUser = result.user;
+      console.log(signInUser)
+      form.reset();
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }
+
+
+
+
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -12,7 +39,7 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
             <div className="card-body">
-              <form>
+              <form onSubmit={handleSignIn}>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -62,7 +89,7 @@ const Login = () => {
                 </div>
                 <h4 className="text-base font-bold ml-6">
                   Don't have an account ? 
-                 <Link to="/signup" className="text-blue-600">
+                  <Link to="/signup" className="text-blue-600">
                     Sign Up
                   </Link>
                 </h4>

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const SignUp = () => {
+
+   const {createUser, updateSignUp} = useContext(AuthContext)
+
+
     const handleSignup = event =>{
         event.preventDefault();
         const form = event.target;
@@ -10,7 +15,27 @@ const SignUp = () => {
         const password = form.password.value;
         const photo = form.photo.value;
         console.log(name, email, password, photo)
+        createUser(email, password)
+        .then(result =>{
+          const createdUser = result.user;
+          console.log(createdUser)
+          updateSignUp(result.user, name, photo)
+          .then(()=>{
+            console.log('update')
+          })
+          .catch(error=>{
+            console.log(error.message)
+          })
+          form.reset()
+        })
+        .catch(error=>{
+          console.log(error)
+        })
     }
+
+
+
+
     return (
         <div className="bg-gray-200 w-3/5 mx-auto p-4 mb-20 rounded-md mt-8">
       <h1 className="text-center text-4xl font-bold mt-16">
@@ -29,7 +54,6 @@ const SignUp = () => {
                 name="name"
                 placeholder="Enter your name"
                 className="input input-bordered"
-                required
               />
             </div>
           </div>
@@ -73,7 +97,6 @@ const SignUp = () => {
                 name="photo"
                 placeholder="Enter your photo url"
                 className="input input-bordered"
-                required
               />
             </div>
           </div>

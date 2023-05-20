@@ -8,13 +8,31 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user, userSignOut} = useContext(AuthContext)
+  
+  const handleSignOut = () =>{
+    userSignOut()
+    .then()
+    .catch(error => console.log(error))
+  }
+
+
+
+
   const navItem = <>
     <li ><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/blogs'>Blogs</NavLink></li> 
     <li ><NavLink to='/alltoys'>All Toys</NavLink></li> 
-    <li ><NavLink to='/mytoys'>My Toys</NavLink></li>
-    <li ><NavLink to='/addtoy'>Add A Toys</NavLink></li>
-    <li><NavLink to='/blogs'>Blogs</NavLink></li>  
+    {user?.displayName ? <>
+      <li ><NavLink to='/mytoys'>My Toys</NavLink></li>
+      <li ><NavLink to='/addtoy'>Add A Toys</NavLink></li>
+      <div className="flex items-center">
+      {user && <h1 className="mr-2">{user.displayName}</h1>}
+      <button className="btn btn-secondary" onClick={handleSignOut}>Sign Out</button>
+      </div>
+    </>
+    : <Link to='/login' className="btn btn-secondary">SignIn</Link> 
+  } 
   </>
   
   
@@ -28,7 +46,6 @@ const Header = () => {
         </label>
         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black">
          {navItem}
-         <Link to='/login' className="btn btn-secondary">SignIn</Link>
         </ul>
       </div>
       <div className="flex lg:ml-6">
@@ -39,9 +56,7 @@ const Header = () => {
     </div>
     <div className="navbar-center hidden lg:flex navbar-end lg:mr-6">
       <ul className="menu menu-horizontal px-1 text-white">
-         {user && <h1>{user.displayName}</h1>}
          {navItem}
-         <Link to='/login' className="btn btn-secondary">SignIn</Link>
       </ul>
     </div>
   </div>

@@ -1,6 +1,45 @@
 import React from "react";
 
 const FeedBack = () => {
+
+   const handleReview = event =>{
+    event.preventDefault()
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const email = form.email.value;
+    const product = form.product.value;
+    const rating = form.rating.value;
+    const improve = form.improved.value;
+    const feedback = form.feedback.value;
+    const review ={
+      firstName,
+      lastName,
+      email,
+      product,
+      rating,
+      improve,
+      feedback,
+    }
+    console.log(review)
+    fetch('http://localhost:5000/reviews',{
+      method:'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(review)
+    })
+    .then(res=> res.json())
+    .then(data=> {
+      console.log(data)
+      if(data.insertedId){
+        alert('Sucessfully create')
+        form.reset();
+      }
+    })
+   }
+
+
   return (
     <div className="bg-gray-200 w-4/5 mx-auto p-4 mb-20 rounded-md">
       <h1 className="text-center text-4xl font-bold mt-16">
@@ -11,7 +50,7 @@ const FeedBack = () => {
         service. <br /> Also leave us your rating that help to reach more
         consumers
       </p>
-      <form>
+      <form onSubmit={handleReview}>
         <div className="card-body w-3/4 mx-auto">
          {/* row--------1 */} 
           <div className="grid gap-5 grid-cols-1 md:grid-cols-2">

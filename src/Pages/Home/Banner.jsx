@@ -8,7 +8,7 @@ const Banner = () => {
     <div >
       <div className="hero  lg:min-h-screen bg-gray-600">
      <div className="hero-content flex-col lg:flex-row-reverse">
-      <img src={banner} className="lg:w-[750px] w-[1000px] shadow-2xl mask mask-hexagon" />
+      <img src={banner} className="lg:min-2xl:w-1/2 lg:w-[750px] w-[1000px] shadow-2xl mask mask-hexagon" />
      <div className="text-white md:w-1/2">
       <h1 className="md:text-5xl text-4xl font-bold md:ml-10">Welcome to Doll House</h1>
       <p className="py-6 md:ml-10"> Find huge collection of  Doll Online at lowest prices in  on Doll House. Check out wide range of our collection.</p>

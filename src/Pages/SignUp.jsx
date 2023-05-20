@@ -2,12 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+    const handleSignup = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name, email, password, photo)
+    }
     return (
         <div className="bg-gray-200 w-3/5 mx-auto p-4 mb-20 rounded-md mt-8">
       <h1 className="text-center text-4xl font-bold mt-16">
         Sing Up Here!
       </h1>
-      <form>
+      <form onSubmit={handleSignup}>
         <div className="card-body w-3/5 mx-auto">
          {/* row--------1 */} 
           <div className="grid gap-5 grid-cols-1">

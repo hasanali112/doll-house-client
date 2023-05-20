@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/firbase.config';
 
  export const AuthContext = createContext (null)
@@ -9,7 +9,12 @@ import app from '../Firebase/firbase.config';
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loader, useLoader] = useState(true)
- 
+    //for google 
+    const provider = new GoogleAuthProvider();
+    //for github
+    const gitHubProvider = new GithubAuthProvider();
+
+
     //user create account
     const createUser= (email, password) =>{
         useLoader(true)
@@ -37,6 +42,18 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    //google signIn
+    const userGoogleSignIn = () =>{
+        useLoader(true)
+        return signInWithPopup(auth, provider)
+    }
+
+    //for github
+     const userGitHubSignIn = () =>{
+        useLoader(true)
+        return signInWithPopup(auth, gitHubProvider)
+     }
+
 
     //user observer 
     useEffect(()=>{
@@ -55,7 +72,9 @@ const AuthProvider = ({children}) => {
          createUser,
          UserSignIn,
          updateSignUp,
-         userSignOut
+         userSignOut,
+         userGoogleSignIn,
+         userGitHubSignIn
     }
 
 

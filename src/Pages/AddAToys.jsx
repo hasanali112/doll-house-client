@@ -39,7 +39,7 @@ const AddAToys = () => {
         description
      }
     console.log(addAtoy)
-    fetch('http://localhost:5000/addtoys', {
+    fetch('https://dolls-marketplace-server.vercel.app/addtoys', {
      method:'POST',
      headers:{
         'content-type': 'application/json'
@@ -125,7 +125,7 @@ const AddAToys = () => {
               <input
                 type="text"
                 name="price"
-                placeholder="$"
+                placeholder="Price"
                 className="input input-bordered"
                 required
               />

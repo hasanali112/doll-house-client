@@ -11,6 +11,7 @@ import AllToys from "../Pages/AllToys";
 import MyToys from "../Pages/MyToys";
 import AddAToys from "../Pages/AddAToys";
 import PrivateRoute from "./PrivateRoute";
+import ViewDetail from "../Pages/ViewDetail";
 
 
  export const router = createBrowserRouter([
@@ -38,7 +39,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:'/alltoys',
           element:<AllToys></AllToys>,
-          loader: ()=> fetch('http://localhost:5000/alltoys')
+          loader: ()=> fetch('https://dolls-marketplace-server.vercel.app/alltoys')
         },
         {
           path:'/mytoys',
@@ -47,6 +48,11 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:'/addtoy',
           element:<PrivateRoute><AddAToys></AddAToys></PrivateRoute>
+        },
+        {
+          path:'/viewdetail/:id',
+          element:<PrivateRoute><ViewDetail></ViewDetail></PrivateRoute>,
+          loader:({params}) => fetch(`https://dolls-marketplace-server.vercel.app/toy/${params.id}`)
         }
       ]
     },

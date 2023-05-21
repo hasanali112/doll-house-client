@@ -28,7 +28,7 @@ const AllToys = () => {
             </thead>
             <tbody>
               {allToyData.map((allToy) => (
-                <tr>
+                <tr key={allToy._id}>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">

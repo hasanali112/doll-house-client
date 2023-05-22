@@ -52,9 +52,12 @@ const MyToys = () => {
   
   return (
     <div>
-      <h1 className="text-center p-10 text-4xl font-bold ">
-        My Toys:{myToy.length}
+       <div className=" bg-gray-400 p-10" >
+       <h1 className="text-center bg-gray-400  text-4xl font-bold ">
+        My Toys: {myToy.length}
       </h1>
+      <p className="text-center text-gray-700 text-xl font-semibold">Here see your add all the toys. If you want update and delete your toy.</p>
+       </div>
       <div>
         <div className="overflow-x-auto w-full">
           <table className="table w-full">

@@ -12,7 +12,10 @@ const Blog = () => {
             <div className='w-1/2 mx-auto mt-10 pb-10'>
                <h1 className='text-xl font-bold mt-4'><strong>1. Q:</strong> What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>
 
-               <p className='text-gray-700 text-base font-semibold'><strong>Ans:</strong>A refresh token is a special token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires. </p>
+               <p className='text-gray-700 text-base font-semibold'><strong>Ans:</strong>A refresh token is a special token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires. 
+               <br />The use of access tokens and refresh tokens improves security by minimizing the exposure of the user's credentials . When a user log in generate Access Token . Then user authorise for access . When token validation end then generate new token. Those are reapted process.
+               <br />They store local storage , Session Storage and cookies.
+               </p>
                <h1 className='text-xl font-bold mt-4'><strong>2. Q:</strong> Compare SQL and NoSQL databases?</h1>
 
                <p className='text-gray-700 text-base font-semibold'><strong>Ans:</strong> SQL databases are vertically scalable, while NoSQL databases are horizontally scalable. SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores. SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.</p>

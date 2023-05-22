@@ -3,12 +3,18 @@ import { useLoaderData } from 'react-router-dom';
 import useTitle from "../hooks/useTitle";
 import Select from "react-select";
 import { AuthContext } from '../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const options = [
-  { value: "baby dolls", label: "Baby dolls" },
-  { value: "barbie", label: "Barbie" },
-  { value: "American girl", label: "American girl" },
+  { value: "Baby dolls", label: "Baby Dolls" },
+  { value: "Barbie", label: "Barbie" },
+  { value: "American Girl", label: "American Girl" },
+  { value: "Interactive Dolls", label: "Interactive Dolls" },
+  { value: "Reborn Dolls", label: "Reborn Dolls" },
+  { value: "Fairy Dolls", label: "Fairy Dolls" },
+  { value: "Rag Dolls", label: "Rag Dolls" },
+  { value: "Fashion Dolls", label: "Fashion Dolls" },
 ];
 
 
@@ -50,7 +56,7 @@ const UpdateToy = () => {
        description
     }
    console.log(updateToy)
-   fetch(`http://localhost:5000/update/${_id}`, {
+   fetch(`https://dolls-marketplace-server.vercel.app/update/${_id}`, {
     method:'PUT',
     headers:{
        'content-type': 'application/json'
@@ -60,7 +66,18 @@ const UpdateToy = () => {
    .then(res=> res.json())
    .then(data=>{
        console.log(data)
-       form.reset();
+       if(data.modifiedCount >0){
+        Swal.fire({
+          title: 'Update your toy successfully',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
+      } 
+      form.reset();
    })
  }
 
@@ -198,7 +215,7 @@ const UpdateToy = () => {
           </div>
           
           <div className="form-control mt-6">
-            <input className="btn btn-primary" type="submit" value="Add Toy" />
+            <input className="btn btn-primary" type="submit" value="Update Toy" />
           </div>
         </div>
       </form>

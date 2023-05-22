@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useTitle from "../hooks/useTitle";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
   useTitle("All Toys");
+  const [allToyData, setAllToyData] = useState([])
+  const [searchText, setSearchText] = useState("")
 
-  const allToyData = useLoaderData();
-  console.log(allToyData);
+  useEffect(()=>{
+    fetch('https://dolls-marketplace-server.vercel.app/alltoys')
+    .then(res=>res.json())
+    .then(data=> setAllToyData(data))
+  },[])
+  
+  const handleSearch = ()=>{
+    fetch(`https://dolls-marketplace-server.vercel.app/searchbytoy/${searchText}`)
+    .then(res=> res.json())
+    .then(data=>{
+      setAllToyData(data)
+    })
+  }
 
   return (
-    <div  className="mt-20">
-      <h1 className="text-center text-4xl font-bold mb-10">All toys:{allToyData.length}</h1>
+    <div>
+      <h1 className="text-center bg-gray-400 text-4xl p-10 font-bold mb-10">See here all toys collection: {allToyData.length}</h1>
+       <div className="ml-96 mb-20">
+       <input onChange={(e)=> setSearchText(e.target.value)} type="text" placeholder="Search here" className="input input-bordered w-full max-w-xs" />
+         <button  onClick={handleSearch} className="btn btn-outline btn-primary ml-4">Search</button>
+       </div>
+      
+     
       <div className="mb-10 mx-10">
         <div className="overflow-x-auto w-full">
           <table className="table w-full">

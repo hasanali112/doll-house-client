@@ -5,7 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 const SubCategories = () => {
   const [loadAlltoy, setLoadAlltoy] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
-  console.log(loadAlltoy);
+ 
 
   useEffect(() => {
     fetch("http://localhost:5000/alltoys")
@@ -23,10 +23,10 @@ const SubCategories = () => {
   return (
     <div className="mt-40">
       <h1 className="text-4xl text-center font-bold mb-5 ">
-        Shop by Popular Category{" "}
+        Shop by Popular Category
       </h1>
       <p className="text-xl text-center font-semibold mb-10 text-gray-500">
-        The latest figures on the top online shopping categories here. <br />{" "}
+        The latest figures on the top online shopping categories here. <br />
         You can explore and view detail on the setail page
       </p>
       <div className="md:w-4/5 md:mx-auto">
@@ -35,7 +35,7 @@ const SubCategories = () => {
             <Tab className="md:w-1/2 md:mx-auto ml-10">
               <div className="md:space-x-10 space-x-4">
                 <div className="tabs md:space-x-10">
-                  <a className="tab tab-lifted tab-active md:space-x-20 space-x-4">
+                  <a className="tab tab-lifted tab-active text-xl font-semibold md:space-x-20 space-x-4">
                     {category.map((cat, index) => (
                       <button
                         key={index}
@@ -51,7 +51,8 @@ const SubCategories = () => {
             </Tab>
           </TabList>
 
-          <TabPanel className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+          <TabPanel >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:space-x-20 mt-5">
             {loadAlltoy
               .filter((item) => item.categories === category[activeTab])
               .map((item, index) => (
@@ -67,7 +68,6 @@ const SubCategories = () => {
                     <div className="card-body">
                       <h2 className="card-title text-2xl font-bold">
                        {item.toyName}
-                        <div className="badge badge-secondary">NEW</div>
                       </h2>
                       <p className="text-base text-gray-600 font-semibold">Price: ${item.price}</p>
                       <p className="text-base text-gray-600 font-semibold">Rating: {item.rating}</p>
@@ -78,6 +78,7 @@ const SubCategories = () => {
                   </div>
                 </div>
               ))}
+              </div>
           </TabPanel>
         </Tabs>
       </div>

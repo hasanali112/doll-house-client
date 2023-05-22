@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Gellary = () => {
+  useEffect(()=>{
+    AOS.init();
+  },[])
+
+
   return (
-    <div>
+    <div data-aos="fade-up"> 
       <h1 className="text-center text-4xl font-bold mt-24">Our Best Photo Collection</h1>
       <p className="text-center text-xl text-gray-500 font-semibold mt-4 mb-10">See out best collection for your baby. Enjoy the collection and purchase them easily</p>
       <div className="mb-8">
@@ -82,14 +89,14 @@ const Gellary = () => {
               <div class="h-96 w-72">
                 <img
                   class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
-                  src="https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+                  src="https://images.unsplash.com/photo-1613722860912-50da017439c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
                   alt=""
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
               <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                 <h1 class="font-dmserif text-3xl font-bold text-white">
-                 Teady Bear
+                Fashion Dolls
                 </h1>
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 Amazing collection. High selling doll in our shop. Although Barbie's sales since the year 2000 .
@@ -103,14 +110,14 @@ const Gellary = () => {
               <div class="h-96 w-72">
                 <img
                   class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
-                  src="https://images.unsplash.com/photo-1549014285-5c0ca6a40e7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+                  src="https://images.unsplash.com/photo-1606644713008-fa33ede52e90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
                   alt=""
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
               <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                 <h1 class="font-dmserif text-3xl font-bold text-white">
-                Teady Bear
+                Fairy Dolls
                 </h1>
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 Amazing collection. High selling doll in our shop. Although Barbie's sales since the year 2000 .
@@ -124,14 +131,14 @@ const Gellary = () => {
               <div class="h-96 w-72">
                 <img
                   class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
-                  src="https://images.unsplash.com/photo-1608189617989-7914461e9f33?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+                  src="https://images.unsplash.com/photo-1616121474380-abe0aa516c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80"
                   alt=""
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
               <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                 <h1 class="font-dmserif text-3xl font-bold text-white">
-                 Teady Bear
+                Interactive dolls
                 </h1>
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 Amazing collection. High selling doll in our shop. Although Barbie's sales since the year 2000 .

@@ -25,8 +25,8 @@ const Header = () => {
     <li><NavLink to='/blogs'>Blogs</NavLink></li> 
     <li ><NavLink to='/alltoys'>All Toys</NavLink></li> 
     {user?.displayName ? <>
-      <li ><NavLink to='/mytoys'>My Toys</NavLink></li>
       <li ><NavLink to='/addtoy'>Add A Toys</NavLink></li>
+      <li ><NavLink to='/mytoys'>My Toys</NavLink></li>
       <div className="flex items-center">
       {user && <><a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
            <img src={user.photoURL} referrerpolicy="no-referrer" alt="" className="rounded-full mr-2 w-10"/>

@@ -2,11 +2,17 @@ import React, { useContext, useState } from "react";
 import useTitle from "../hooks/useTitle";
 import Select from "react-select";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const options = [
-  { value: "baby dolls", label: "babydolls" },
-  { value: "barbie", label: "barbie" },
-  { value: "americangirl", label: "americangirl" },
+  { value: "Baby dolls", label: "Baby Dolls" },
+  { value: "Barbie", label: "Barbie" },
+  { value: "American Girl", label: "American Girl" },
+  { value: "Interactive Dolls", label: "Interactive Dolls" },
+  { value: "Reborn Dolls", label: "Reborn Dolls" },
+  { value: "Fairy Dolls", label: "Fairy Dolls" },
+  { value: "Rag Dolls", label: "Rag Dolls" },
+  { value: "Fashion Dolls", label: "Fashion Dolls" },
 ];
 
 const AddAToys = () => {
@@ -49,12 +55,23 @@ const AddAToys = () => {
     .then(res=> res.json())
     .then(data=>{
         console.log(data)
+        if(data.insertedId){
+          Swal.fire({
+            title: 'Add your toy successfully',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+        }
         form.reset();
     })
   }
 
   return (
-    <div className="bg-rose-100 w-4/5 mx-auto p-4 mb-20 rounded-md mt-20">
+    <div className="bg-gray-300 w-4/5 mx-auto p-4 mb-20 rounded-md mt-20">
       <h1 className="text-center text-4xl font-bold mt-16">Add Your Toy</h1>
       <p className="text-center text-gray-500 text-xl font-semibold mt-6">
         Add your favourite and fancy toy that have like your baby. <br /> Play

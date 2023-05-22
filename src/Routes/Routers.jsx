@@ -39,8 +39,7 @@ import UpdateToy from "../Pages/UpdateToy";
         }, 
         {
           path:'/alltoys',
-          element:<AllToys></AllToys>,
-          loader: ()=> fetch('https://dolls-marketplace-server.vercel.app/alltoys')
+          element:<AllToys></AllToys> 
         },
         {
           path:'/mytoys',
@@ -58,7 +57,7 @@ import UpdateToy from "../Pages/UpdateToy";
         {
           path:'/updatetoy/:id',
           element:<PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/toy/${params.id}`)
+          loader:({params})=> fetch(`https://dolls-marketplace-server.vercel.app/toy/${params.id}`)
         }
       ]
     },

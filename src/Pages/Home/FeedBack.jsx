@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const FeedBack = () => {
 
@@ -33,7 +34,15 @@ const FeedBack = () => {
     .then(data=> {
       console.log(data)
       if(data.insertedId){
-        alert('Sucessfully create')
+        Swal.fire({
+          title: 'Review submitted successfully',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
         form.reset();
       }
     })

@@ -29,7 +29,7 @@ const Header = () => {
       <li ><NavLink to='/addtoy'>Add A Toys</NavLink></li>
       <div className="flex items-center">
       {user && <><a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
-           <img src={user.photoURL} alt="" className="rounded-full mr-2 w-10"/>
+           <img src={user.photoURL} referrerpolicy="no-referrer" alt="" className="rounded-full mr-2 w-10"/>
          </a> <Tooltip id="my-tooltip" /></> }
       <button className="btn btn-secondary" onClick={handleSignOut}>Sign Out</button>
       </div>

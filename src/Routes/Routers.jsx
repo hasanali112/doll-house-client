@@ -23,7 +23,7 @@ import UpdateToy from "../Pages/UpdateToy";
       children:[
         {
             path:'/',
-            element: <Home></Home>
+            element: <Home></Home>,
         },
         {
           path:'/blogs',

@@ -4,9 +4,9 @@ import Select from "react-select";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const options = [
-  { value: "baby dolls", label: "Baby dolls" },
-  { value: "barbie", label: "Barbie" },
-  { value: "American girl", label: "American girl" },
+  { value: "baby dolls", label: "babydolls" },
+  { value: "barbie", label: "barbie" },
+  { value: "americangirl", label: "americangirl" },
 ];
 
 const AddAToys = () => {

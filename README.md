@@ -11,4 +11,4 @@
 * deploy the server site in vercel and client site in firebase
 
 
-#### Live site link:
+#### Live site link: https://doll-house-c137a.web.app/
